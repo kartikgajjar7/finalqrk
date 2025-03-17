@@ -1,8 +1,9 @@
-"use client"; 
+"use client";
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
+Image;
 export default function Navbar() {
   const [position, setPosition] = useState({
     left: 0,
@@ -12,10 +13,12 @@ export default function Navbar() {
 
   return (
     <ul
-      className="relative mx-auto mt-12 flex w-fit rounded-full border-2 border-gray-700 bg-neutral-900 p-1"
+      className="relative mx-auto mt-12 flex items-center justify-center w-fit rounded-full border-2 border-gray-700 bg-neutral-900 p-1"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
-      <Tab setPosition={setPosition}>Home</Tab>
+      <Tab setPosition={setPosition}>
+        <Image src="/quark.png" width={50} height={50} />
+      </Tab>
       <Tab setPosition={setPosition}>Pricing</Tab>
       <Tab setPosition={setPosition}>About</Tab>
       <Tab setPosition={setPosition}>Services</Tab>
@@ -47,7 +50,7 @@ const Tab = ({
           left: ref.current.offsetLeft,
         });
       }}
-      className="relative text-bold z-10 block cursor-pointer px-3 py-1.5 text-xs  text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      className="relative text-bold flex items-center justify-center z-10  cursor-pointer px-3 py-1.5 text-xs  text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
     >
       {children}
     </li>
@@ -58,7 +61,7 @@ const Cursor = ({ position }: { position: any }) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 h-7 rounded-full bg-white md:h-12"
+      className="absolute flex items-center justify-center z-0 h-7 rounded-full bg-white md:h-12"
     />
   );
 };

@@ -145,7 +145,7 @@ export default function SignUpForm() {
               onClick={() => handleSocialLogin("github")}
               className="bg-white text-black hover:bg-gray-100 w-[45%]"
             >
-              <img src="/github.svg" alt="GitHub" />
+              <img className="w-[58px]" src="/fgithub.png" alt="GitHub" />
             </Button>
             <Button
               disabled={isPending}
@@ -153,7 +153,7 @@ export default function SignUpForm() {
               onClick={() => handleSocialLogin("google")}
               className="bg-white text-black hover:bg-gray-100 w-[45%]"
             >
-              <img className="w-[29px]" src="/goggle.svg" alt="Google" />
+              <img className="w-[29px]" src="/Google.svg" alt="Google" />
             </Button>
           </div>
 

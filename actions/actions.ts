@@ -5,7 +5,7 @@ import { signOut } from "@/auth";
 import { getUserByEmail } from "../data/user";
 import { registerSchema } from "../schema";
 import * as z from "zod"; // Ensure this import is complete
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { DEFAULT_REDIRECT } from "@/routes";

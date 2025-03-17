@@ -4,8 +4,6 @@ import { loginSchema } from "../schema";
 import GitHubProvider from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
-console.log(process.env.CLA);
-console.log(process.env.SCR);
 
 import { getUserByEmail } from "../data/user";
 export default {

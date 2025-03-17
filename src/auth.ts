@@ -25,17 +25,12 @@ declare module "next-auth" {
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
   adapter: PrismaAdapter(db),
-  providers: [
-    Google({
-      clientId: process.env.AUTH_GOOGLE_ID || "",
-      clientSecret: process.env.AUTH_GOOGLE_SECRET || "",
-    }),
-  ],
+
   session: {
     strategy: "jwt",
   },
   pages: {
-    signIn: "/signin",
+    signIn: "/auth/signin",
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -62,7 +57,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
 
     redirect() {
-      return "/signin";
+      return "/home";
     },
   },
 });
