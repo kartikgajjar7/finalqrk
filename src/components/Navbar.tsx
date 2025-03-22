@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <ul
-      className="relative mx-auto mt-12 flex items-center justify-center w-fit rounded-full border-2 border-gray-700 bg-neutral-900 p-1"
+      className="relative px-[31px] mx-auto mt-12 flex items-center justify-center w-fit rounded-full border-2 border-gray-700 bg-neutral-900 p-1"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
       <Tab setPosition={setPosition}>

@@ -23,7 +23,7 @@ export default async function Home() {
         <h1 className="font-bold tracking-tighter sm:text-5xl md:text-xl lg:text-7xl/none max-w-3xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-teal-400 to-violet-500 ">
           Create & Publish Content Cross sifste with Quark
         </h1>
-        <h1 className=" text-[rgb(201 203 207] mx-auto max-w-[700px] text-gray-300 md:text-xl lg:text-2xl">
+        <h1 className="bg-gradient-to-l from-gray-600 via-gray-300 to-white text-transparent bg-clip-text mx-auto max-w-[700px] md:text-xl lg:text-2xl">
           Collaborate, evolve, endure: The open-source blogging platform where
           community contributions keep your content eternally relevant.
         </h1>

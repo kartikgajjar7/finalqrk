@@ -3,7 +3,6 @@ import { useTheme } from "next-themes";
 import { ShineBorder } from "@/components/ui/shine-border";
 import DisplayCards from "./ui/display-cards";
 import OrbitingIcons from "./Orbit";
-
 import localFont from "next/font/local";
 const abc = localFont({
   src: "../../public/atl.woff2",
