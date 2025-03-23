@@ -1,8 +1,8 @@
-import Editor from "@/components/global/Editor";
+import TailwindAdvancedEditor from "@/components/tailwind/advanced-editor";
 export default function EditorPage() {
   return (
     <>
-      <Editor />
+      <TailwindAdvancedEditor />
     </>
   );
 }
