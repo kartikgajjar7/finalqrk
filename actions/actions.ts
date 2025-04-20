@@ -9,7 +9,6 @@ import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { DEFAULT_REDIRECT } from "@/routes";
-import { redirect } from "next/navigation";
 
 const login = async (values: z.infer<typeof loginSchema>) => {
   console.table(values);

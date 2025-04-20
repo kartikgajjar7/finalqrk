@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 Image;
 export default function Navbar() {
@@ -22,7 +23,9 @@ export default function Navbar() {
       <Tab setPosition={setPosition}>Pricing</Tab>
       <Tab setPosition={setPosition}>About</Tab>
       <Tab setPosition={setPosition}>Services</Tab>
-      <Tab setPosition={setPosition}>Contact</Tab>
+      <Tab setPosition={setPosition}>
+        <Link href={"/auth/signin"}>Sign In</Link>
+      </Tab>
 
       <Cursor position={position} />
     </ul>

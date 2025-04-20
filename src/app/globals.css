@@ -126,6 +126,22 @@
   --sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
+@layer utilities {
+  @keyframes pulse-custom {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse-custom 1.5s infinite ease-in-out;
+  }
+}
+
 @keyframes accordion-down {
   from {
     height: 0;
@@ -182,6 +198,23 @@
 .animate-orbit-slow {
   animation: orbitLarge 20s linear infinite;
 }
+
+@layer utilities {
+  @keyframes pulse-custom {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse-custom 1.5s infinite ease-in-out;
+  }
+}
+
 @layer utilities {
   @keyframes shine {
     0% {

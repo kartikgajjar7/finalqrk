@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
+import QueryProvider from "@/components/QueryProvider";
 import Provider from "@/provider";
+
 import { ThemeProvider } from "@/components/theme-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +39,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <QueryProvider>{children}</QueryProvider>
           </ThemeProvider>
         </Provider>
       </body>

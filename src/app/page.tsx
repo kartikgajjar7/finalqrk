@@ -7,7 +7,6 @@ import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight-new";
 export default async function Home() {
-  console.log("Home");
   const session = await auth();
 
   if (session?.user) {
@@ -21,7 +20,7 @@ export default async function Home() {
         <Star />
         <SquaresDemo />
         <h1 className="font-bold tracking-tighter sm:text-5xl md:text-xl lg:text-7xl/none max-w-3xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-teal-400 to-violet-500 ">
-          Create & Publish Content Cross sifste with Quark
+          Create & Publish open source Content with Quark
         </h1>
         <h1 className="bg-gradient-to-l from-gray-600 via-gray-300 to-white text-transparent bg-clip-text mx-auto max-w-[700px] md:text-xl lg:text-2xl">
           Collaborate, evolve, endure: The open-source blogging platform where

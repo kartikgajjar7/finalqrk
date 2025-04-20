@@ -138,6 +138,17 @@ export default function SignUpForm() {
             )}
           />
 
+          {success && <FormSuccess message={success} />}
+          {error && <FormError message={error} />}
+
+          <Button disabled={isPending} className="w-[100%] m-0" type="submit">
+            Sign Up with Email
+          </Button>
+          <div className="flex my-6 items-center">
+            <div className="w-auto h-1 bg-[#ffffff] flex-grow rounded-full"></div>
+            <div className="mx-2 text-[#ffffff]">or</div>
+            <div className="w-auto h-1 bg-[#ffffff] flex-grow rounded-full"></div>
+          </div>
           <div className="w-[100%] flex flex-row items-center justify-around space-x-4">
             <Button
               disabled={isPending}
@@ -156,13 +167,6 @@ export default function SignUpForm() {
               <img className="w-[29px]" src="/Google.svg" alt="Google" />
             </Button>
           </div>
-
-          {success && <FormSuccess message={success} />}
-          {error && <FormError message={error} />}
-
-          <Button disabled={isPending} className="w-[100%]" type="submit">
-            Sign Up with Email
-          </Button>
         </form>
       </Form>
 

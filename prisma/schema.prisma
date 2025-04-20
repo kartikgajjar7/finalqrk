@@ -1,31 +1,54 @@
-datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-
-  // directUrl = env("DATABASE_URL_UNPOOLED")
-}
 generator client {
   provider = "prisma-client-js"
 }
-enum UserRole{
-  PRO
-  NORMAL
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
+
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
   password      String?
   role          UserRole?
-
+  pullRequests PullRequest[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
   accounts      Account[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  blogs         Blog[]
 }
 
-
+model Blog {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  length    Int
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  owner     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pullRequests PullRequest[]
+  @@index([title])
+}
+model PullRequest {
+  title         String
+  description   String
+  id            String   @id @default(cuid())
+  upvotes       Int      @default(0)
+  blogId        String
+  blog          Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  editedContent String   
+  createdById   String
+  createdBy     User     @relation( fields: [createdById], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status        PRStatus @default(PENDING)
+}
 model Account {
   userId            String
   type              String
@@ -38,10 +61,19 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@id([provider, providerAccountId])
+}
+
+enum UserRole {
+  PRO
+  NORMAL
+}
+enum PRStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  MERGED
 }

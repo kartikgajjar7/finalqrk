@@ -153,7 +153,6 @@ const mathematics = Mathematics.configure({
 
 const characterCount = CharacterCount.configure();
 
-console.log("MarkdownExtension", MarkdownExtension);
 const markdownExtension = MarkdownExtension.configure({
   html: true,
   tightLists: true,
