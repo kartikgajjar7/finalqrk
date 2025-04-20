@@ -28,7 +28,6 @@ export async function createBlogPost(title: string, content: Block[]) {
       errorMessage = error.message;
     }
 
-    console.error("Blog post creation error:", errorMessage);
     throw new Error(errorMessage);
   }
 }
@@ -36,7 +35,7 @@ export async function createBlogPost(title: string, content: Block[]) {
 export async function fetchBlog(blogId: string): Promise<Blog> {
   try {
     const { data } = await blogApi.get<BlogResponse>("/document", {
-      params: { blogId }, 
+      params: { blogId },
     });
 
     if (!data.success || !data.document) {
@@ -73,7 +72,7 @@ export async function createEditRequest(
   initialContent: string,
   contributorId: string,
   title: string,
-  description: string
+  description: string,
 ) {
   try {
     const res = await editApi.post("/pr", {
