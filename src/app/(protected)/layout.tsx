@@ -5,7 +5,7 @@ import { SidebarProvider } from "@/contexts/sidebar-context";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Analytics Dashboard | Web Traffic & Insights",
+  title: "Quark Dashboard | Write Your Thoughts",
   description:
     "Track and analyze website traffic with detailed insights, user behavior metrics, and performance reports.",
 };

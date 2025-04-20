@@ -11,24 +11,23 @@ export default auth((req) => {
   const { nextUrl } = req;
   const isloggedin = !!req.auth;
   const isapiroute = nextUrl.pathname.startsWith("/api");
-  const ispublickroute = publickRoutes.includes(nextUrl.pathname);
+  const ispublickroute =
+    publickRoutes.includes(nextUrl.pathname) ||
+    nextUrl.pathname.startsWith("/document/");
   const isauthroute = authRoutes.includes(nextUrl.pathname);
   if (isapiroute) {
-    console.log("abc");
     return;
   }
   if (isauthroute) {
     if (isloggedin) {
-      console.log("abc");
       return Response.redirect(new URL(DEFAULT_REDIRECT, nextUrl));
     }
     return;
   }
   if (!isloggedin && !ispublickroute) {
-    console.log("abc");
-    return Response.redirect(new URL("/", nextUrl));
+    return Response.redirect(new URL(DEFAULT_REDIRECT, nextUrl));
   }
-  console.log("abc");
+
   return;
 });
 

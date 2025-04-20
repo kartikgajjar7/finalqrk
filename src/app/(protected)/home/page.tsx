@@ -1,5 +1,6 @@
 import React from "react";
 import Blogcard from "@/components/global/blogcard";
+
 import AddButton from "@/components/global/addbutton";
 import localFont from "next/font/local";
 const abc = localFont({
@@ -7,7 +8,9 @@ const abc = localFont({
 });
 export default function page() {
   return (
-    <div className=" border h-full w-full px-56">
+    <div
+      className={`border h-full ${abc.className}  bg-[#0A0A0A] w-full px-56`}
+    >
       <div className=" flex flex-col mt-20  items-center justify-center  w-full">
         <h1 className="text-4xl">Welcome Kartik !</h1>
         <h1 className="text-3xl">

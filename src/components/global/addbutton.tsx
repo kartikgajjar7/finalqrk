@@ -3,13 +3,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useSidebar } from "@/contexts/sidebar-context";
 
 export default function AddButton() {
+  const { isCollapsed, toggleSidebar } = useSidebar();
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+  const RedirectToCreatePage = () => {
+    router.push("/home/create");
+    toggleSidebar();
+  };
 
   return (
     <motion.button
-      className="relative w-43 h-43 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black rounded-lg group"
+      onClick={RedirectToCreatePage}
+      className="relative cursor-pointer w-43 h-43 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black rounded-lg group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileTap={{ scale: 0.95 }}
